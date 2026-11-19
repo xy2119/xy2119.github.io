@@ -1,31 +1,27 @@
 /* Custom styles for Xinyan Ye's academic homepage */
-/* Refined Academic Sapphire & Ocean Blue Palette:
-   --color-darkest:   #0a192f (Deep Midnight Navy)
-   --color-navy:      #16325c (Deep Royal Navy)
-   --color-blue:      #1d63b8 (Rich Sapphire / Academic Blue)
-   --color-cyan-blue: #0284c7 (Vibrant Cerulean Ocean Blue)
-   --color-mist:      #7baee0 (Soft Slate Sky Mist)
-   --color-steel:     #3b536b (Muted Slate Blue)
+/* Arctic Glacial Blue Palette (Paper Heart Design):
+   --color-arctic-navy:   #1E3156 (Deep Arctic Midnight Navy)
+   --color-glacial-slate: #496995 (Glacial Slate Ocean Blue)
+   --color-ice-mist:      #A5B5D2 (Periwinkle Ice Mist)
+   --color-frost-sky:     #B0CBE6 (Soft Frost Powder Sky Blue)
 */
 
 :root {
-  --color-darkest: #0a192f;
-  --color-navy: #16325c;
-  --color-blue: #1d63b8;
-  --color-cyan-blue: #0284c7;
-  --color-mist: #7baee0;
-  --color-steel: #3b536b;
+  --color-arctic-navy: #1E3156;
+  --color-glacial-slate: #496995;
+  --color-ice-mist: #A5B5D2;
+  --color-frost-sky: #B0CBE6;
 
-  --primary-dark: var(--color-darkest);
-  --text-main: #1e293b;
-  --text-muted: var(--color-steel);
-  --accent-blue: var(--color-blue);
-  --accent-cyan: var(--color-cyan-blue);
-  --link-color: var(--color-blue);
-  --link-hover: var(--color-cyan-blue);
+  --primary-dark: var(--color-arctic-navy);
+  --text-main: #1f2b3e;
+  --text-muted: var(--color-glacial-slate);
+  --accent-primary: var(--color-arctic-navy);
+  --accent-secondary: var(--color-glacial-slate);
+  --link-color: var(--color-glacial-slate);
+  --link-hover: var(--color-arctic-navy);
   --bg-page: #f8fafc;
   --bg-card: #ffffff;
-  --border-light: rgba(123, 174, 224, 0.28);
+  --border-light: rgba(165, 181, 210, 0.35);
 }
 
 html {
@@ -49,11 +45,11 @@ body {
   top: 0;
   z-index: 999;
   height: 56px;
-  background-color: rgba(248, 250, 252, 0.85);
+  background-color: rgba(248, 250, 252, 0.88);
   -webkit-backdrop-filter: blur(16px) saturate(180%);
   backdrop-filter: blur(16px) saturate(180%);
   border-bottom: 1px solid var(--border-light);
-  box-shadow: 0 4px 20px -2px rgba(10, 25, 47, 0.05);
+  box-shadow: 0 4px 20px -2px rgba(30, 49, 86, 0.05);
   display: flex;
   align-items: center;
 }
@@ -69,7 +65,7 @@ body {
   font-family: 'Google Sans', 'Noto Sans', sans-serif;
   font-weight: 700;
   font-size: 1.15rem;
-  color: var(--color-darkest);
+  color: var(--color-arctic-navy);
   text-decoration: none;
   letter-spacing: -0.01em;
   transition: all 0.2s ease;
@@ -79,7 +75,7 @@ body {
 }
 
 .top-nav .nav-brand:hover {
-  color: var(--color-blue);
+  color: var(--color-glacial-slate);
 }
 
 .top-nav .nav-links {
@@ -96,24 +92,24 @@ body {
   border-radius: 20px;
   font-size: 0.88rem;
   font-weight: 500;
-  color: var(--color-steel);
+  color: var(--color-glacial-slate);
   text-decoration: none;
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .top-nav .nav-link i {
   font-size: 0.82rem;
-  color: var(--color-mist);
+  color: var(--color-ice-mist);
   transition: color 0.2s ease;
 }
 
 .top-nav .nav-link:hover {
-  color: var(--color-blue);
-  background-color: rgba(29, 99, 184, 0.08);
+  color: var(--color-arctic-navy);
+  background-color: rgba(176, 203, 230, 0.25);
 }
 
 .top-nav .nav-link:hover i {
-  color: var(--color-cyan-blue);
+  color: var(--color-glacial-slate);
 }
 
 @media screen and (max-width: 640px) {
@@ -185,13 +181,13 @@ body {
   padding: 1.85rem 1.35rem;
   background: var(--bg-card);
   border-radius: 18px;
-  box-shadow: 0 10px 30px -5px rgba(10, 25, 47, 0.06), 0 2px 6px -1px rgba(10, 25, 47, 0.04);
+  box-shadow: 0 10px 30px -5px rgba(30, 49, 86, 0.07), 0 2px 6px -1px rgba(30, 49, 86, 0.04);
   border: 1px solid var(--border-light);
   transition: all 0.3s ease;
 }
 
 .profile-card:hover {
-  box-shadow: 0 16px 36px -6px rgba(29, 99, 184, 0.12), 0 4px 8px -2px rgba(10, 25, 47, 0.04);
+  box-shadow: 0 16px 36px -6px rgba(73, 105, 149, 0.15), 0 4px 8px -2px rgba(30, 49, 86, 0.05);
 }
 
 .profile-photo-wrapper {
@@ -208,22 +204,22 @@ body {
   border-radius: 50%;
   object-fit: cover;
   display: block;
-  box-shadow: 0 8px 24px -4px rgba(29, 99, 184, 0.22);
+  box-shadow: 0 8px 24px -4px rgba(30, 49, 86, 0.2);
   border: 3.5px solid #ffffff;
-  outline: 2px solid rgba(2, 132, 199, 0.4);
-  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  outline: 2px solid var(--color-frost-sky);
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), outline-color 0.3s ease;
 }
 
 .profile-card:hover .profile-photo {
   transform: scale(1.035);
-  outline-color: var(--color-cyan-blue);
+  outline-color: var(--color-glacial-slate);
 }
 
 .profile-name {
   font-family: 'Google Sans', 'Noto Sans', sans-serif;
   font-size: 1.45rem;
   font-weight: 700;
-  color: var(--color-darkest);
+  color: var(--color-arctic-navy);
   margin-bottom: 0.3rem;
   letter-spacing: -0.01em;
 }
@@ -231,7 +227,7 @@ body {
 .profile-name-zh {
   font-size: 1.05rem;
   font-weight: 400;
-  color: var(--color-mist);
+  color: var(--color-ice-mist);
   margin-left: 0.2rem;
 }
 
@@ -243,36 +239,37 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  background: linear-gradient(135deg, rgba(29, 99, 184, 0.08) 0%, rgba(2, 132, 199, 0.12) 100%);
-  color: var(--color-blue);
+  background: linear-gradient(135deg, rgba(176, 203, 230, 0.25) 0%, rgba(165, 181, 210, 0.3) 100%);
+  color: var(--color-arctic-navy);
   font-size: 0.8rem;
   font-weight: 600;
   padding: 0.22rem 0.8rem;
   border-radius: 20px;
-  border: 1px solid rgba(29, 99, 184, 0.25);
+  border: 1px solid rgba(165, 181, 210, 0.5);
   letter-spacing: 0.01em;
 }
 
 .profile-affil {
   font-size: 0.88rem;
-  color: var(--color-steel);
+  color: var(--color-glacial-slate);
   line-height: 1.45;
   margin-bottom: 1.15rem;
 }
 
 .profile-affil .dept {
-  color: var(--color-navy);
+  color: var(--color-arctic-navy);
   font-weight: 500;
 }
 
 .profile-affil .univ a {
-  color: var(--color-navy);
+  color: var(--color-arctic-navy);
   text-decoration: none;
   font-weight: 600;
+  transition: color 0.15s ease;
 }
 
 .profile-affil .univ a:hover {
-  color: var(--color-blue);
+  color: var(--color-glacial-slate);
   text-decoration: underline;
 }
 
@@ -294,27 +291,27 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(241, 246, 252, 0.8);
-  color: var(--color-steel);
-  border: 1px solid var(--border-light);
+  background-color: rgba(176, 203, 230, 0.15);
+  color: var(--color-glacial-slate);
+  border: 1px solid rgba(165, 181, 210, 0.3);
   font-size: 0.9rem;
   transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   text-decoration: none;
 }
 
 .social-icon-btn:hover {
-  background: linear-gradient(135deg, var(--color-blue) 0%, var(--color-cyan-blue) 100%);
+  background: linear-gradient(135deg, var(--color-arctic-navy) 0%, var(--color-glacial-slate) 100%);
   color: #ffffff;
   border-color: transparent;
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.35);
+  box-shadow: 0 4px 12px rgba(73, 105, 149, 0.35);
 }
 
 /* Supervisors Box */
 .profile-supervisors-box {
-  background: linear-gradient(135deg, rgba(241, 246, 252, 0.8) 0%, rgba(235, 242, 250, 0.5) 100%);
+  background: linear-gradient(135deg, rgba(240, 244, 250, 0.85) 0%, rgba(244, 248, 253, 0.5) 100%);
   border: 1px solid var(--border-light);
-  border-left: 3.5px solid var(--color-blue);
+  border-left: 3.5px solid var(--color-glacial-slate);
   border-radius: 12px;
   padding: 0.8rem 0.95rem;
   margin-bottom: 1.15rem;
@@ -326,7 +323,7 @@ body {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: var(--color-steel);
+  color: var(--color-glacial-slate);
   margin-bottom: 0.4rem;
   display: flex;
   align-items: center;
@@ -334,7 +331,7 @@ body {
 }
 
 .supervisor-label i {
-  color: var(--color-blue);
+  color: var(--color-arctic-navy);
 }
 
 .supervisor-item {
@@ -351,7 +348,7 @@ body {
   align-items: center;
   font-size: 0.86rem;
   font-weight: 500;
-  color: var(--color-darkest);
+  color: var(--color-arctic-navy);
   text-decoration: none;
   padding: 0.2rem 0.35rem;
   border-radius: 6px;
@@ -360,17 +357,17 @@ body {
 
 .supervisor-link i {
   font-size: 0.68rem;
-  color: var(--color-mist);
+  color: var(--color-ice-mist);
   transition: all 0.15s ease;
 }
 
 .supervisor-link:hover {
-  color: var(--color-blue);
-  background-color: rgba(2, 132, 199, 0.08);
+  color: var(--color-glacial-slate);
+  background-color: rgba(176, 203, 230, 0.22);
 }
 
 .supervisor-link:hover i {
-  color: var(--color-cyan-blue);
+  color: var(--color-glacial-slate);
   transform: translate(2px, -2px);
 }
 
@@ -388,12 +385,12 @@ body {
   gap: 0.6rem;
   padding: 0.32rem 0;
   font-size: 0.85rem;
-  color: var(--color-steel);
+  color: var(--color-glacial-slate);
 }
 
 .sidebar-details-list .detail-icon {
   width: 18px;
-  color: var(--color-blue);
+  color: var(--color-glacial-slate);
   text-align: center;
   flex-shrink: 0;
   font-size: 0.85rem;
@@ -406,13 +403,14 @@ body {
 }
 
 .sidebar-details-list .detail-text a {
-  color: var(--link-color);
+  color: var(--color-arctic-navy);
   text-decoration: none;
+  font-weight: 500;
   transition: color 0.15s ease;
 }
 
 .sidebar-details-list .detail-text a:hover {
-  color: var(--link-hover);
+  color: var(--color-glacial-slate);
   text-decoration: underline;
 }
 
@@ -426,7 +424,7 @@ body {
   margin-bottom: 1.25rem;
   position: relative;
   display: inline-block;
-  color: var(--color-darkest);
+  color: var(--color-arctic-navy);
 }
 
 .section-title::after {
@@ -436,7 +434,7 @@ body {
   bottom: 0;
   width: 100%;
   height: 3px;
-  background: linear-gradient(90deg, var(--color-blue) 0%, var(--color-cyan-blue) 60%, var(--color-mist) 100%);
+  background: linear-gradient(90deg, var(--color-arctic-navy) 0%, var(--color-glacial-slate) 55%, var(--color-ice-mist) 85%, var(--color-frost-sky) 100%);
   border-radius: 2px;
 }
 
@@ -453,34 +451,36 @@ body {
 }
 
 .about-content a {
-  color: var(--link-color);
+  color: var(--color-glacial-slate);
   text-decoration: none;
   font-weight: 500;
   transition: color 0.15s ease;
 }
 
 .about-content a:hover {
-  color: var(--link-hover);
+  color: var(--color-arctic-navy);
   text-decoration: underline;
 }
 
-/* ---- Research Interest Tags (Sapphire to Ocean Blue Gradient) ---- */
+/* ---- Research Interest Tags (Glacial Arctic Gradient) ---- */
 .research-tag {
   display: inline-block;
-  background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-blue) 60%, var(--color-cyan-blue) 100%);
+  background: linear-gradient(135deg, var(--color-arctic-navy) 0%, #304870 50%, var(--color-glacial-slate) 100%);
   color: #ffffff;
   padding: 5px 14px;
   border-radius: 20px;
   margin: 3px 4px 3px 0;
   font-size: 0.84rem;
   font-weight: 500;
-  box-shadow: 0 2px 6px rgba(29, 99, 184, 0.2);
+  box-shadow: 0 2px 6px rgba(30, 49, 86, 0.18);
+  border: 1px solid rgba(176, 203, 230, 0.25);
   transition: all 0.25s ease;
 }
 
 .research-tag:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.35);
+  box-shadow: 0 4px 12px rgba(73, 105, 149, 0.35);
+  background: linear-gradient(135deg, var(--color-glacial-slate) 0%, var(--color-arctic-navy) 100%);
 }
 
 /* ---- News Section ---- */
@@ -496,25 +496,25 @@ body {
 
 .news-date {
   font-weight: 700;
-  color: var(--color-blue);
+  color: var(--color-glacial-slate);
   min-width: 95px;
   font-size: 0.88rem;
   letter-spacing: 0.01em;
 }
 
 #toggle-news-btn {
-  background: linear-gradient(135deg, rgba(29, 99, 184, 0.08) 0%, rgba(2, 132, 199, 0.1) 100%);
-  color: var(--color-blue);
-  border: 1px solid rgba(29, 99, 184, 0.25);
+  background: linear-gradient(135deg, rgba(176, 203, 230, 0.2) 0%, rgba(165, 181, 210, 0.25) 100%);
+  color: var(--color-arctic-navy);
+  border: 1px solid rgba(165, 181, 210, 0.5);
   font-weight: 600;
   transition: all 0.2s ease;
 }
 
 #toggle-news-btn:hover {
-  background: linear-gradient(135deg, var(--color-blue) 0%, var(--color-cyan-blue) 100%);
+  background: linear-gradient(135deg, var(--color-arctic-navy) 0%, var(--color-glacial-slate) 100%);
   color: #ffffff;
   border-color: transparent;
-  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.25);
+  box-shadow: 0 4px 12px rgba(73, 105, 149, 0.25);
 }
 
 /* ---- Publication Cards ---- */
@@ -523,17 +523,17 @@ body {
   border-radius: 12px;
   padding: 20px 22px;
   margin-bottom: 18px;
-  box-shadow: 0 2px 10px rgba(10, 25, 47, 0.04);
+  box-shadow: 0 2px 10px rgba(30, 49, 86, 0.04);
   transition: all 0.25s ease;
-  border-left: 4px solid var(--color-blue);
+  border-left: 4px solid var(--color-glacial-slate);
   border-top: 1px solid var(--border-light);
   border-right: 1px solid var(--border-light);
   border-bottom: 1px solid var(--border-light);
 }
 
 .publication-entry:hover {
-  box-shadow: 0 8px 24px -2px rgba(29, 99, 184, 0.14);
-  border-left-color: var(--color-cyan-blue);
+  box-shadow: 0 8px 24px -2px rgba(73, 105, 149, 0.14);
+  border-left-color: var(--color-arctic-navy);
   transform: translateY(-2px);
 }
 
@@ -541,43 +541,43 @@ body {
   font-family: 'Google Sans', 'Noto Sans', sans-serif;
   font-weight: 600;
   font-size: 1.05rem;
-  color: var(--color-darkest);
+  color: var(--color-arctic-navy);
   margin-bottom: 6px;
   line-height: 1.42;
 }
 
 .pub-authors {
   font-size: 0.92rem;
-  color: var(--color-steel);
+  color: var(--color-glacial-slate);
   margin-bottom: 5px;
 }
 
 .pub-authors a {
-  color: var(--link-color);
+  color: var(--color-glacial-slate);
   text-decoration: none;
 }
 
 .pub-authors a:hover {
-  color: var(--link-hover);
+  color: var(--color-arctic-navy);
   text-decoration: underline;
 }
 
 .pub-authors .me {
   font-weight: 700;
-  color: var(--color-blue);
+  color: var(--color-arctic-navy);
   text-decoration: underline;
-  text-decoration-color: var(--color-cyan-blue);
+  text-decoration-color: var(--color-frost-sky);
 }
 
 .pub-venue {
   font-size: 0.86rem;
-  color: var(--color-steel);
+  color: var(--color-glacial-slate);
   margin-bottom: 9px;
 }
 
 .pub-venue .venue-badge {
   display: inline-block;
-  background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-blue) 100%);
+  background: linear-gradient(135deg, var(--color-arctic-navy) 0%, var(--color-glacial-slate) 100%);
   color: #ffffff;
   padding: 2.5px 9px;
   border-radius: 5px;
@@ -586,24 +586,24 @@ body {
   font-size: 0.76rem;
   letter-spacing: 0.02em;
   margin-right: 6px;
-  border: 1px solid rgba(123, 174, 224, 0.25);
+  border: 1px solid rgba(176, 203, 230, 0.3);
 }
 
 .pub-buttons .button {
   margin-right: 6px;
   margin-bottom: 6px;
-  background-color: var(--color-navy);
+  background-color: var(--color-arctic-navy);
   color: #ffffff;
-  border: 1px solid var(--color-navy);
+  border: 1px solid var(--color-arctic-navy);
   transition: all 0.2s ease;
 }
 
 .pub-buttons .button:hover {
-  background: linear-gradient(135deg, var(--color-blue) 0%, var(--color-cyan-blue) 100%);
+  background: linear-gradient(135deg, var(--color-glacial-slate) 0%, #304870 100%);
   border-color: transparent;
   color: #ffffff;
   transform: translateY(-1px);
-  box-shadow: 0 4px 10px rgba(2, 132, 199, 0.28);
+  box-shadow: 0 4px 10px rgba(73, 105, 149, 0.28);
 }
 
 /* ---- Experience Timeline ---- */
@@ -611,7 +611,7 @@ body {
   position: relative;
   padding-left: 24px;
   padding-bottom: 20px;
-  border-left: 2px solid rgba(29, 99, 184, 0.25);
+  border-left: 2px solid rgba(73, 105, 149, 0.28);
 }
 
 .experience-entry::before {
@@ -622,44 +622,44 @@ body {
   width: 11px;
   height: 11px;
   border-radius: 50%;
-  background: var(--color-cyan-blue);
+  background: var(--color-glacial-slate);
   border: 2px solid #ffffff;
-  box-shadow: 0 0 0 2.5px rgba(29, 99, 184, 0.25);
+  box-shadow: 0 0 0 2.5px var(--color-frost-sky);
 }
 
 .exp-title {
   font-family: 'Google Sans', 'Noto Sans', sans-serif;
   font-weight: 600;
   font-size: 1rem;
-  color: var(--color-darkest);
+  color: var(--color-arctic-navy);
 }
 
 .exp-org {
   font-size: 0.9rem;
-  color: var(--color-blue);
+  color: var(--color-glacial-slate);
   font-weight: 600;
 }
 
 .exp-date {
   font-size: 0.82rem;
-  color: var(--color-mist);
+  color: var(--color-ice-mist);
 }
 
 /* ---- Footer ---- */
 .footer {
-  background-color: #f1f5f9;
+  background-color: #f1f4f9;
   border-top: 1px solid var(--border-light);
   padding: 2rem 1.5rem;
   margin-top: 3.5rem;
 }
 
 .footer a {
-  color: var(--color-blue);
+  color: var(--color-arctic-navy);
   text-decoration: none;
 }
 
 .footer a:hover {
-  color: var(--color-cyan-blue);
+  color: var(--color-glacial-slate);
   text-decoration: underline;
 }
 
