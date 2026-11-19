@@ -1,31 +1,31 @@
 /* Custom styles for Xinyan Ye's academic homepage */
-/* Elegant Palette Inspired by Ashraf Works:
-   #031716 (Midnight Obsidian Teal)
-   #032F30 (Deep Spruce Forest Teal)
-   #0A7075 (Rich Classic Teal)
-   #0C969C (Vibrant Cyan Teal)
-   #6BA3BE (Soft Slate Sky Mist)
-   #274D60 (Muted Steel Cyan)
+/* Refined Academic Sapphire & Ocean Blue Palette:
+   --color-darkest:   #0a192f (Deep Midnight Navy)
+   --color-navy:      #16325c (Deep Royal Navy)
+   --color-blue:      #1d63b8 (Rich Sapphire / Academic Blue)
+   --color-cyan-blue: #0284c7 (Vibrant Cerulean Ocean Blue)
+   --color-mist:      #7baee0 (Soft Slate Sky Mist)
+   --color-steel:     #3b536b (Muted Slate Blue)
 */
 
 :root {
-  --color-darkest: #031716;
-  --color-spruce: #032F30;
-  --color-teal: #0A7075;
-  --color-cyan: #0C969C;
-  --color-mist: #6BA3BE;
-  --color-steel: #274D60;
+  --color-darkest: #0a192f;
+  --color-navy: #16325c;
+  --color-blue: #1d63b8;
+  --color-cyan-blue: #0284c7;
+  --color-mist: #7baee0;
+  --color-steel: #3b536b;
 
   --primary-dark: var(--color-darkest);
-  --text-main: #1b2828;
+  --text-main: #1e293b;
   --text-muted: var(--color-steel);
-  --accent-teal: var(--color-teal);
-  --accent-cyan: var(--color-cyan);
-  --link-color: var(--color-teal);
-  --link-hover: var(--color-cyan);
-  --bg-page: #f9fbfb;
+  --accent-blue: var(--color-blue);
+  --accent-cyan: var(--color-cyan-blue);
+  --link-color: var(--color-blue);
+  --link-hover: var(--color-cyan-blue);
+  --bg-page: #f8fafc;
   --bg-card: #ffffff;
-  --border-light: rgba(107, 163, 190, 0.25);
+  --border-light: rgba(123, 174, 224, 0.28);
 }
 
 html {
@@ -49,11 +49,11 @@ body {
   top: 0;
   z-index: 999;
   height: 56px;
-  background-color: rgba(249, 251, 251, 0.85);
+  background-color: rgba(248, 250, 252, 0.85);
   -webkit-backdrop-filter: blur(16px) saturate(180%);
   backdrop-filter: blur(16px) saturate(180%);
   border-bottom: 1px solid var(--border-light);
-  box-shadow: 0 4px 20px -2px rgba(3, 47, 48, 0.05);
+  box-shadow: 0 4px 20px -2px rgba(10, 25, 47, 0.05);
   display: flex;
   align-items: center;
 }
@@ -79,7 +79,7 @@ body {
 }
 
 .top-nav .nav-brand:hover {
-  color: var(--color-teal);
+  color: var(--color-blue);
 }
 
 .top-nav .nav-links {
@@ -108,12 +108,12 @@ body {
 }
 
 .top-nav .nav-link:hover {
-  color: var(--color-teal);
-  background-color: rgba(10, 112, 117, 0.08);
+  color: var(--color-blue);
+  background-color: rgba(29, 99, 184, 0.08);
 }
 
 .top-nav .nav-link:hover i {
-  color: var(--color-cyan);
+  color: var(--color-cyan-blue);
 }
 
 @media screen and (max-width: 640px) {
@@ -185,13 +185,13 @@ body {
   padding: 1.85rem 1.35rem;
   background: var(--bg-card);
   border-radius: 18px;
-  box-shadow: 0 10px 30px -5px rgba(3, 47, 48, 0.06), 0 2px 6px -1px rgba(3, 23, 22, 0.04);
+  box-shadow: 0 10px 30px -5px rgba(10, 25, 47, 0.06), 0 2px 6px -1px rgba(10, 25, 47, 0.04);
   border: 1px solid var(--border-light);
   transition: all 0.3s ease;
 }
 
 .profile-card:hover {
-  box-shadow: 0 16px 36px -6px rgba(10, 112, 117, 0.12), 0 4px 8px -2px rgba(3, 23, 22, 0.04);
+  box-shadow: 0 16px 36px -6px rgba(29, 99, 184, 0.12), 0 4px 8px -2px rgba(10, 25, 47, 0.04);
 }
 
 .profile-photo-wrapper {
@@ -208,15 +208,15 @@ body {
   border-radius: 50%;
   object-fit: cover;
   display: block;
-  box-shadow: 0 8px 24px -4px rgba(10, 112, 117, 0.22);
+  box-shadow: 0 8px 24px -4px rgba(29, 99, 184, 0.22);
   border: 3.5px solid #ffffff;
-  outline: 2px solid rgba(12, 150, 156, 0.4);
+  outline: 2px solid rgba(2, 132, 199, 0.4);
   transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .profile-card:hover .profile-photo {
   transform: scale(1.035);
-  outline-color: var(--color-cyan);
+  outline-color: var(--color-cyan-blue);
 }
 
 .profile-name {
@@ -243,13 +243,13 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  background: linear-gradient(135deg, rgba(10, 112, 117, 0.08) 0%, rgba(12, 150, 156, 0.12) 100%);
-  color: var(--color-teal);
+  background: linear-gradient(135deg, rgba(29, 99, 184, 0.08) 0%, rgba(2, 132, 199, 0.12) 100%);
+  color: var(--color-blue);
   font-size: 0.8rem;
   font-weight: 600;
   padding: 0.22rem 0.8rem;
   border-radius: 20px;
-  border: 1px solid rgba(10, 112, 117, 0.25);
+  border: 1px solid rgba(29, 99, 184, 0.25);
   letter-spacing: 0.01em;
 }
 
@@ -261,18 +261,18 @@ body {
 }
 
 .profile-affil .dept {
-  color: var(--color-spruce);
+  color: var(--color-navy);
   font-weight: 500;
 }
 
 .profile-affil .univ a {
-  color: var(--color-spruce);
+  color: var(--color-navy);
   text-decoration: none;
   font-weight: 600;
 }
 
 .profile-affil .univ a:hover {
-  color: var(--color-teal);
+  color: var(--color-blue);
   text-decoration: underline;
 }
 
@@ -294,7 +294,7 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(240, 247, 248, 0.8);
+  background-color: rgba(241, 246, 252, 0.8);
   color: var(--color-steel);
   border: 1px solid var(--border-light);
   font-size: 0.9rem;
@@ -303,18 +303,18 @@ body {
 }
 
 .social-icon-btn:hover {
-  background: linear-gradient(135deg, var(--color-teal) 0%, var(--color-cyan) 100%);
+  background: linear-gradient(135deg, var(--color-blue) 0%, var(--color-cyan-blue) 100%);
   color: #ffffff;
   border-color: transparent;
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(12, 150, 156, 0.35);
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.35);
 }
 
 /* Supervisors Box */
 .profile-supervisors-box {
-  background: linear-gradient(135deg, rgba(240, 247, 248, 0.7) 0%, rgba(235, 245, 247, 0.4) 100%);
+  background: linear-gradient(135deg, rgba(241, 246, 252, 0.8) 0%, rgba(235, 242, 250, 0.5) 100%);
   border: 1px solid var(--border-light);
-  border-left: 3.5px solid var(--color-teal);
+  border-left: 3.5px solid var(--color-blue);
   border-radius: 12px;
   padding: 0.8rem 0.95rem;
   margin-bottom: 1.15rem;
@@ -334,7 +334,7 @@ body {
 }
 
 .supervisor-label i {
-  color: var(--color-teal);
+  color: var(--color-blue);
 }
 
 .supervisor-item {
@@ -365,12 +365,12 @@ body {
 }
 
 .supervisor-link:hover {
-  color: var(--color-teal);
-  background-color: rgba(12, 150, 156, 0.08);
+  color: var(--color-blue);
+  background-color: rgba(2, 132, 199, 0.08);
 }
 
 .supervisor-link:hover i {
-  color: var(--color-cyan);
+  color: var(--color-cyan-blue);
   transform: translate(2px, -2px);
 }
 
@@ -393,7 +393,7 @@ body {
 
 .sidebar-details-list .detail-icon {
   width: 18px;
-  color: var(--color-teal);
+  color: var(--color-blue);
   text-align: center;
   flex-shrink: 0;
   font-size: 0.85rem;
@@ -436,7 +436,7 @@ body {
   bottom: 0;
   width: 100%;
   height: 3px;
-  background: linear-gradient(90deg, var(--color-teal) 0%, var(--color-cyan) 60%, var(--color-mist) 100%);
+  background: linear-gradient(90deg, var(--color-blue) 0%, var(--color-cyan-blue) 60%, var(--color-mist) 100%);
   border-radius: 2px;
 }
 
@@ -464,23 +464,23 @@ body {
   text-decoration: underline;
 }
 
-/* ---- Research Interest Tags (Teal to Cyan Gradient) ---- */
+/* ---- Research Interest Tags (Sapphire to Ocean Blue Gradient) ---- */
 .research-tag {
   display: inline-block;
-  background: linear-gradient(135deg, var(--color-spruce) 0%, var(--color-teal) 60%, var(--color-cyan) 100%);
+  background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-blue) 60%, var(--color-cyan-blue) 100%);
   color: #ffffff;
   padding: 5px 14px;
   border-radius: 20px;
   margin: 3px 4px 3px 0;
   font-size: 0.84rem;
   font-weight: 500;
-  box-shadow: 0 2px 6px rgba(10, 112, 117, 0.18);
+  box-shadow: 0 2px 6px rgba(29, 99, 184, 0.2);
   transition: all 0.25s ease;
 }
 
 .research-tag:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(12, 150, 156, 0.35);
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.35);
 }
 
 /* ---- News Section ---- */
@@ -496,25 +496,25 @@ body {
 
 .news-date {
   font-weight: 700;
-  color: var(--color-teal);
+  color: var(--color-blue);
   min-width: 95px;
   font-size: 0.88rem;
   letter-spacing: 0.01em;
 }
 
 #toggle-news-btn {
-  background: linear-gradient(135deg, rgba(10, 112, 117, 0.08) 0%, rgba(12, 150, 156, 0.1) 100%);
-  color: var(--color-teal);
-  border: 1px solid rgba(10, 112, 117, 0.25);
+  background: linear-gradient(135deg, rgba(29, 99, 184, 0.08) 0%, rgba(2, 132, 199, 0.1) 100%);
+  color: var(--color-blue);
+  border: 1px solid rgba(29, 99, 184, 0.25);
   font-weight: 600;
   transition: all 0.2s ease;
 }
 
 #toggle-news-btn:hover {
-  background: linear-gradient(135deg, var(--color-teal) 0%, var(--color-cyan) 100%);
+  background: linear-gradient(135deg, var(--color-blue) 0%, var(--color-cyan-blue) 100%);
   color: #ffffff;
   border-color: transparent;
-  box-shadow: 0 4px 12px rgba(12, 150, 156, 0.25);
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.25);
 }
 
 /* ---- Publication Cards ---- */
@@ -523,17 +523,17 @@ body {
   border-radius: 12px;
   padding: 20px 22px;
   margin-bottom: 18px;
-  box-shadow: 0 2px 10px rgba(3, 47, 48, 0.04);
+  box-shadow: 0 2px 10px rgba(10, 25, 47, 0.04);
   transition: all 0.25s ease;
-  border-left: 4px solid var(--color-teal);
+  border-left: 4px solid var(--color-blue);
   border-top: 1px solid var(--border-light);
   border-right: 1px solid var(--border-light);
   border-bottom: 1px solid var(--border-light);
 }
 
 .publication-entry:hover {
-  box-shadow: 0 8px 24px -2px rgba(10, 112, 117, 0.12);
-  border-left-color: var(--color-cyan);
+  box-shadow: 0 8px 24px -2px rgba(29, 99, 184, 0.14);
+  border-left-color: var(--color-cyan-blue);
   transform: translateY(-2px);
 }
 
@@ -564,9 +564,9 @@ body {
 
 .pub-authors .me {
   font-weight: 700;
-  color: var(--color-teal);
+  color: var(--color-blue);
   text-decoration: underline;
-  text-decoration-color: var(--color-cyan);
+  text-decoration-color: var(--color-cyan-blue);
 }
 
 .pub-venue {
@@ -577,7 +577,7 @@ body {
 
 .pub-venue .venue-badge {
   display: inline-block;
-  background: linear-gradient(135deg, var(--color-spruce) 0%, var(--color-teal) 100%);
+  background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-blue) 100%);
   color: #ffffff;
   padding: 2.5px 9px;
   border-radius: 5px;
@@ -586,24 +586,24 @@ body {
   font-size: 0.76rem;
   letter-spacing: 0.02em;
   margin-right: 6px;
-  border: 1px solid rgba(107, 163, 190, 0.25);
+  border: 1px solid rgba(123, 174, 224, 0.25);
 }
 
 .pub-buttons .button {
   margin-right: 6px;
   margin-bottom: 6px;
-  background-color: var(--color-spruce);
+  background-color: var(--color-navy);
   color: #ffffff;
-  border: 1px solid var(--color-spruce);
+  border: 1px solid var(--color-navy);
   transition: all 0.2s ease;
 }
 
 .pub-buttons .button:hover {
-  background: linear-gradient(135deg, var(--color-teal) 0%, var(--color-cyan) 100%);
+  background: linear-gradient(135deg, var(--color-blue) 0%, var(--color-cyan-blue) 100%);
   border-color: transparent;
   color: #ffffff;
   transform: translateY(-1px);
-  box-shadow: 0 4px 10px rgba(12, 150, 156, 0.28);
+  box-shadow: 0 4px 10px rgba(2, 132, 199, 0.28);
 }
 
 /* ---- Experience Timeline ---- */
@@ -611,7 +611,7 @@ body {
   position: relative;
   padding-left: 24px;
   padding-bottom: 20px;
-  border-left: 2px solid rgba(10, 112, 117, 0.25);
+  border-left: 2px solid rgba(29, 99, 184, 0.25);
 }
 
 .experience-entry::before {
@@ -622,9 +622,9 @@ body {
   width: 11px;
   height: 11px;
   border-radius: 50%;
-  background: var(--color-cyan);
+  background: var(--color-cyan-blue);
   border: 2px solid #ffffff;
-  box-shadow: 0 0 0 2.5px rgba(10, 112, 117, 0.25);
+  box-shadow: 0 0 0 2.5px rgba(29, 99, 184, 0.25);
 }
 
 .exp-title {
@@ -636,7 +636,7 @@ body {
 
 .exp-org {
   font-size: 0.9rem;
-  color: var(--color-teal);
+  color: var(--color-blue);
   font-weight: 600;
 }
 
@@ -647,19 +647,19 @@ body {
 
 /* ---- Footer ---- */
 .footer {
-  background-color: #f0f5f6;
+  background-color: #f1f5f9;
   border-top: 1px solid var(--border-light);
   padding: 2rem 1.5rem;
   margin-top: 3.5rem;
 }
 
 .footer a {
-  color: var(--color-teal);
+  color: var(--color-blue);
   text-decoration: none;
 }
 
 .footer a:hover {
-  color: var(--color-cyan);
+  color: var(--color-cyan-blue);
   text-decoration: underline;
 }
 
