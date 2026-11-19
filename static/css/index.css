@@ -34,11 +34,10 @@ body {
   color: var(--text-main);
   margin: 0;
   padding: 0;
-  background-color: #E7F1F8;
+  background-color: #FFFFFF;
   background-image:
-    radial-gradient(980px 520px at 0% -8%, rgba(176, 203, 230, 0.7), transparent 62%),
-    radial-gradient(720px 480px at 100% 0%, rgba(166, 181, 210, 0.35), transparent 58%),
-    linear-gradient(180deg, #E3F0F8 0%, #F2F7FB 48%, #F4F8FB 100%);
+    radial-gradient(900px 420px at 0% -12%, rgba(176, 203, 230, 0.09), transparent 72%),
+    linear-gradient(180deg, #F8FBFD 0%, #FCFDFE 22%, #FFFFFF 58%);
   background-attachment: fixed;
 }
 
@@ -54,7 +53,7 @@ body {
   top: 0;
   z-index: 999;
   height: 56px;
-  background-color: rgba(231, 241, 248, 0.86);
+  background-color: rgba(255, 255, 255, 0.84);
   -webkit-backdrop-filter: blur(16px) saturate(160%);
   backdrop-filter: blur(16px) saturate(160%);
   border-bottom: 1px solid var(--border-light);
@@ -671,7 +670,7 @@ body {
 
 /* ---- Footer ---- */
 .footer {
-  background-color: #E4EEF6;
+  background-color: #FBFCFD;
   border-top: 1px solid var(--border-light);
   padding: 2rem 1.5rem;
   margin-top: 3.5rem;
