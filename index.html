@@ -179,37 +179,47 @@
             </div>
           </div>
 
-          <div class="news-item">
-            <div class="columns is-mobile">
-              <div class="column is-narrow">
-                <span class="news-date">2024</span>
+          <!-- Pre-2026 News (Collapsible) -->
+          <div id="older-news" style="display: none;">
+            <div class="news-item">
+              <div class="columns is-mobile">
+                <div class="column is-narrow">
+                  <span class="news-date">2024</span>
+                </div>
+                <div class="column">
+                  📄 Paper on <em>Uplift Modeling with Graph Neural Networks and Causal Knowledge</em> published at <strong>IEEE CAI 2024</strong>.
+                </div>
               </div>
-              <div class="column">
-                📄 Paper on <em>Uplift Modeling with Graph Neural Networks and Causal Knowledge</em> published at <strong>IEEE CAI 2024</strong>.
+            </div>
+
+            <div class="news-item">
+              <div class="columns is-mobile">
+                <div class="column is-narrow">
+                  <span class="news-date">2023</span>
+                </div>
+                <div class="column">
+                  🎓 Started PhD at Imperial College London, Department of Computing.
+                </div>
+              </div>
+            </div>
+
+            <div class="news-item">
+              <div class="columns is-mobile">
+                <div class="column is-narrow">
+                  <span class="news-date">2022</span>
+                </div>
+                <div class="column">
+                  📄 Paper on <em>"Multihead Causal Distilling Weighting Is All You Need for Uplift Modeling"</em> published at <strong>IEEE HDIS 2022</strong>.
+                </div>
               </div>
             </div>
           </div>
 
-          <div class="news-item">
-            <div class="columns is-mobile">
-              <div class="column is-narrow">
-                <span class="news-date">2023</span>
-              </div>
-              <div class="column">
-                🎓 Started PhD at Imperial College London, Department of Computing.
-              </div>
-            </div>
-          </div>
-
-          <div class="news-item">
-            <div class="columns is-mobile">
-              <div class="column is-narrow">
-                <span class="news-date">2022</span>
-              </div>
-              <div class="column">
-                📄 Paper on <em>"Multihead Causal Distilling Weighting Is All You Need for Uplift Modeling"</em> published at <strong>IEEE HDIS 2022</strong>.
-              </div>
-            </div>
+          <div class="has-text-centered" style="margin-top: 1rem;">
+            <button id="toggle-news-btn" class="button is-small is-rounded is-light" onclick="toggleNews()" style="font-weight: 500;">
+              <span id="toggle-news-icon" class="icon"><i class="fas fa-chevron-down"></i></span>
+              <span id="toggle-news-text">More</span>
+            </button>
           </div>
 
         </div>
@@ -448,6 +458,24 @@
     </div>
   </div>
 </footer>
+
+<!-- Toggle News Script -->
+<script>
+  function toggleNews() {
+    const olderNews = document.getElementById('older-news');
+    const btnText = document.getElementById('toggle-news-text');
+    const btnIcon = document.getElementById('toggle-news-icon');
+    if (olderNews.style.display === 'none') {
+      olderNews.style.display = 'block';
+      btnText.textContent = 'Less';
+      btnIcon.innerHTML = '<i class="fas fa-chevron-up"></i>';
+    } else {
+      olderNews.style.display = 'none';
+      btnText.textContent = 'More';
+      btnIcon.innerHTML = '<i class="fas fa-chevron-down"></i>';
+    }
+  }
+</script>
 
 </body>
 </html>
