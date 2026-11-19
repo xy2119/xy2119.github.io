@@ -11,6 +11,8 @@
 
 html {
   scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
@@ -19,16 +21,19 @@ body {
   background-color: #ffffff;
 }
 
-/* ---- Top Navbar ---- */
+/* ==================== Top Navbar (Frosted Glassmorphism) ==================== */
 .top-nav {
-  background: #ffffff;
-  border-bottom: 1px solid var(--border-light);
-  padding: 0.75rem 0;
+  position: -webkit-sticky;
   position: sticky;
   top: 0;
-  z-index: 100;
-  backdrop-filter: blur(8px);
-  background-color: rgba(255, 255, 255, 0.95);
+  z-index: 1000;
+  background-color: rgba(255, 255, 255, 0.78);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  backdrop-filter: blur(16px) saturate(180%);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.85);
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.04);
+  padding: 0.65rem 0;
+  transition: all 0.25s ease;
 }
 
 .top-nav .nav-container {
@@ -38,32 +43,98 @@ body {
 }
 
 .top-nav .nav-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
   font-family: 'Google Sans', 'Noto Sans', sans-serif;
   font-weight: 700;
   font-size: 1.15rem;
   color: var(--primary-dark);
   text-decoration: none;
+  letter-spacing: -0.01em;
+  transition: color 0.2s ease;
 }
 
-.top-nav .nav-links a {
-  margin-left: 1.5rem;
-  color: #4a5568;
-  font-weight: 500;
-  font-size: 0.95rem;
-  text-decoration: none;
-  transition: color 0.2s;
-}
-
-.top-nav .nav-links a:hover {
+.top-nav .nav-brand:hover {
   color: var(--accent-blue);
 }
 
-/* ---- Sidebar Sticky Layout ---- */
+.top-nav .brand-avatar-mini {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: inline-block;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+  border: 1.5px solid #ffffff;
+  flex-shrink: 0;
+}
+
+.top-nav .brand-avatar-mini img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.top-nav .nav-links {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.top-nav .nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 0.85rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #4a5568;
+  text-decoration: none;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.top-nav .nav-link i {
+  font-size: 0.85rem;
+  color: #718096;
+  transition: color 0.2s ease;
+}
+
+.top-nav .nav-link:hover {
+  color: var(--accent-blue);
+  background-color: rgba(74, 111, 165, 0.08);
+}
+
+.top-nav .nav-link:hover i {
+  color: var(--accent-blue);
+}
+
+@media screen and (max-width: 640px) {
+  .top-nav .nav-container {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .top-nav .nav-brand span.brand-text {
+    font-size: 1rem;
+  }
+  .top-nav .nav-links {
+    gap: 0.15rem;
+  }
+  .top-nav .nav-link {
+    padding: 0.35rem 0.5rem;
+    font-size: 0.82rem;
+    gap: 0.25rem;
+  }
+}
+
+/* ==================== Sidebar Sticky Layout ==================== */
 @media screen and (min-width: 769px) {
   .sticky-sidebar {
     position: -webkit-sticky;
     position: sticky;
-    top: 4.5rem;
+    top: 4.8rem;
   }
 }
 
@@ -169,7 +240,7 @@ body {
   text-decoration: underline;
 }
 
-/* ---- Right Main Column Styling ---- */
+/* ==================== Right Main Column Styling ==================== */
 .main-content-column {
   padding-left: 1.5rem;
 }
@@ -186,7 +257,7 @@ body {
   font-weight: 700;
   font-size: 1.5rem;
   padding-bottom: 8px;
-  margin-top: 1rem;
+  margin-top: 0.5rem;
   margin-bottom: 1.25rem;
   border-bottom: 2px solid var(--accent-blue);
   display: inline-block;
@@ -194,7 +265,8 @@ body {
 }
 
 .content-block {
-  margin-bottom: 2.5rem;
+  margin-bottom: 2.75rem;
+  scroll-margin-top: 5rem;
 }
 
 /* ---- About Section ---- */
