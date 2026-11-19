@@ -1,24 +1,25 @@
 /* Custom styles for Xinyan Ye's academic homepage */
-/* Arctic Glacial Blue Palette (Paper Heart Design):
-   --color-arctic-navy:   #1E3156 (Deep Arctic Midnight Navy)
+/* Palette with Darkest Tone #274D60:
+   --color-darkest:       #274D60 (Muted Deep Steel Navy)
    --color-glacial-slate: #496995 (Glacial Slate Ocean Blue)
    --color-ice-mist:      #A5B5D2 (Periwinkle Ice Mist)
    --color-frost-sky:     #B0CBE6 (Soft Frost Powder Sky Blue)
 */
 
 :root {
-  --color-arctic-navy: #1E3156;
+  --color-darkest: #274D60;
+  --color-arctic-navy: #274D60;
   --color-glacial-slate: #496995;
   --color-ice-mist: #A5B5D2;
   --color-frost-sky: #B0CBE6;
 
-  --primary-dark: var(--color-arctic-navy);
-  --text-main: #1f2b3e;
+  --primary-dark: var(--color-darkest);
+  --text-main: #1a3340;
   --text-muted: var(--color-glacial-slate);
-  --accent-primary: var(--color-arctic-navy);
+  --accent-primary: var(--color-darkest);
   --accent-secondary: var(--color-glacial-slate);
   --link-color: var(--color-glacial-slate);
-  --link-hover: var(--color-arctic-navy);
+  --link-hover: var(--color-darkest);
   --bg-page: #f8fafc;
   --bg-card: #ffffff;
   --border-light: rgba(165, 181, 210, 0.35);
@@ -49,7 +50,7 @@ body {
   -webkit-backdrop-filter: blur(16px) saturate(180%);
   backdrop-filter: blur(16px) saturate(180%);
   border-bottom: 1px solid var(--border-light);
-  box-shadow: 0 4px 20px -2px rgba(30, 49, 86, 0.05);
+  box-shadow: 0 4px 20px -2px rgba(39, 77, 96, 0.05);
   display: flex;
   align-items: center;
 }
@@ -65,7 +66,7 @@ body {
   font-family: 'Google Sans', 'Noto Sans', sans-serif;
   font-weight: 700;
   font-size: 1.15rem;
-  color: var(--color-arctic-navy);
+  color: var(--color-darkest);
   text-decoration: none;
   letter-spacing: -0.01em;
   transition: all 0.2s ease;
@@ -104,7 +105,7 @@ body {
 }
 
 .top-nav .nav-link:hover {
-  color: var(--color-arctic-navy);
+  color: var(--color-darkest);
   background-color: rgba(176, 203, 230, 0.25);
 }
 
@@ -181,13 +182,13 @@ body {
   padding: 1.85rem 1.35rem;
   background: var(--bg-card);
   border-radius: 18px;
-  box-shadow: 0 10px 30px -5px rgba(30, 49, 86, 0.07), 0 2px 6px -1px rgba(30, 49, 86, 0.04);
+  box-shadow: 0 10px 30px -5px rgba(39, 77, 96, 0.07), 0 2px 6px -1px rgba(39, 77, 96, 0.04);
   border: 1px solid var(--border-light);
   transition: all 0.3s ease;
 }
 
 .profile-card:hover {
-  box-shadow: 0 16px 36px -6px rgba(73, 105, 149, 0.15), 0 4px 8px -2px rgba(30, 49, 86, 0.05);
+  box-shadow: 0 16px 36px -6px rgba(73, 105, 149, 0.15), 0 4px 8px -2px rgba(39, 77, 96, 0.05);
 }
 
 .profile-photo-wrapper {
@@ -204,7 +205,7 @@ body {
   border-radius: 50%;
   object-fit: cover;
   display: block;
-  box-shadow: 0 8px 24px -4px rgba(30, 49, 86, 0.2);
+  box-shadow: 0 8px 24px -4px rgba(39, 77, 96, 0.2);
   border: 3.5px solid #ffffff;
   outline: 2px solid var(--color-frost-sky);
   transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), outline-color 0.3s ease;
@@ -219,7 +220,7 @@ body {
   font-family: 'Google Sans', 'Noto Sans', sans-serif;
   font-size: 1.45rem;
   font-weight: 700;
-  color: var(--color-arctic-navy);
+  color: var(--color-darkest);
   margin-bottom: 0.3rem;
   letter-spacing: -0.01em;
 }
@@ -240,7 +241,7 @@ body {
   align-items: center;
   gap: 0.35rem;
   background: linear-gradient(135deg, rgba(176, 203, 230, 0.25) 0%, rgba(165, 181, 210, 0.3) 100%);
-  color: var(--color-arctic-navy);
+  color: var(--color-darkest);
   font-size: 0.8rem;
   font-weight: 600;
   padding: 0.22rem 0.8rem;
@@ -257,12 +258,12 @@ body {
 }
 
 .profile-affil .dept {
-  color: var(--color-arctic-navy);
+  color: var(--color-darkest);
   font-weight: 500;
 }
 
 .profile-affil .univ a {
-  color: var(--color-arctic-navy);
+  color: var(--color-darkest);
   text-decoration: none;
   font-weight: 600;
   transition: color 0.15s ease;
@@ -300,7 +301,7 @@ body {
 }
 
 .social-icon-btn:hover {
-  background: linear-gradient(135deg, var(--color-arctic-navy) 0%, var(--color-glacial-slate) 100%);
+  background: linear-gradient(135deg, var(--color-darkest) 0%, var(--color-glacial-slate) 100%);
   color: #ffffff;
   border-color: transparent;
   transform: translateY(-2px);
@@ -331,7 +332,7 @@ body {
 }
 
 .supervisor-label i {
-  color: var(--color-arctic-navy);
+  color: var(--color-darkest);
 }
 
 .supervisor-item {
@@ -348,7 +349,7 @@ body {
   align-items: center;
   font-size: 0.86rem;
   font-weight: 500;
-  color: var(--color-arctic-navy);
+  color: var(--color-darkest);
   text-decoration: none;
   padding: 0.2rem 0.35rem;
   border-radius: 6px;
@@ -403,7 +404,7 @@ body {
 }
 
 .sidebar-details-list .detail-text a {
-  color: var(--color-arctic-navy);
+  color: var(--color-darkest);
   text-decoration: none;
   font-weight: 500;
   transition: color 0.15s ease;
@@ -424,7 +425,7 @@ body {
   margin-bottom: 1.25rem;
   position: relative;
   display: inline-block;
-  color: var(--color-arctic-navy);
+  color: var(--color-darkest);
 }
 
 .section-title::after {
@@ -434,7 +435,7 @@ body {
   bottom: 0;
   width: 100%;
   height: 3px;
-  background: linear-gradient(90deg, var(--color-arctic-navy) 0%, var(--color-glacial-slate) 55%, var(--color-ice-mist) 85%, var(--color-frost-sky) 100%);
+  background: linear-gradient(90deg, var(--color-darkest) 0%, var(--color-glacial-slate) 55%, var(--color-ice-mist) 85%, var(--color-frost-sky) 100%);
   border-radius: 2px;
 }
 
@@ -458,21 +459,21 @@ body {
 }
 
 .about-content a:hover {
-  color: var(--color-arctic-navy);
+  color: var(--color-darkest);
   text-decoration: underline;
 }
 
-/* ---- Research Interest Tags (Glacial Arctic Gradient) ---- */
+/* ---- Research Interest Tags ---- */
 .research-tag {
   display: inline-block;
-  background: linear-gradient(135deg, var(--color-arctic-navy) 0%, #304870 50%, var(--color-glacial-slate) 100%);
+  background: linear-gradient(135deg, var(--color-darkest) 0%, #355b71 50%, var(--color-glacial-slate) 100%);
   color: #ffffff;
   padding: 5px 14px;
   border-radius: 20px;
   margin: 3px 4px 3px 0;
   font-size: 0.84rem;
   font-weight: 500;
-  box-shadow: 0 2px 6px rgba(30, 49, 86, 0.18);
+  box-shadow: 0 2px 6px rgba(39, 77, 96, 0.18);
   border: 1px solid rgba(176, 203, 230, 0.25);
   transition: all 0.25s ease;
 }
@@ -480,7 +481,7 @@ body {
 .research-tag:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(73, 105, 149, 0.35);
-  background: linear-gradient(135deg, var(--color-glacial-slate) 0%, var(--color-arctic-navy) 100%);
+  background: linear-gradient(135deg, var(--color-glacial-slate) 0%, var(--color-darkest) 100%);
 }
 
 /* ---- News Section ---- */
@@ -504,14 +505,14 @@ body {
 
 #toggle-news-btn {
   background: linear-gradient(135deg, rgba(176, 203, 230, 0.2) 0%, rgba(165, 181, 210, 0.25) 100%);
-  color: var(--color-arctic-navy);
+  color: var(--color-darkest);
   border: 1px solid rgba(165, 181, 210, 0.5);
   font-weight: 600;
   transition: all 0.2s ease;
 }
 
 #toggle-news-btn:hover {
-  background: linear-gradient(135deg, var(--color-arctic-navy) 0%, var(--color-glacial-slate) 100%);
+  background: linear-gradient(135deg, var(--color-darkest) 0%, var(--color-glacial-slate) 100%);
   color: #ffffff;
   border-color: transparent;
   box-shadow: 0 4px 12px rgba(73, 105, 149, 0.25);
@@ -523,7 +524,7 @@ body {
   border-radius: 12px;
   padding: 20px 22px;
   margin-bottom: 18px;
-  box-shadow: 0 2px 10px rgba(30, 49, 86, 0.04);
+  box-shadow: 0 2px 10px rgba(39, 77, 96, 0.04);
   transition: all 0.25s ease;
   border-left: 4px solid var(--color-glacial-slate);
   border-top: 1px solid var(--border-light);
@@ -533,7 +534,7 @@ body {
 
 .publication-entry:hover {
   box-shadow: 0 8px 24px -2px rgba(73, 105, 149, 0.14);
-  border-left-color: var(--color-arctic-navy);
+  border-left-color: var(--color-darkest);
   transform: translateY(-2px);
 }
 
@@ -541,7 +542,7 @@ body {
   font-family: 'Google Sans', 'Noto Sans', sans-serif;
   font-weight: 600;
   font-size: 1.05rem;
-  color: var(--color-arctic-navy);
+  color: var(--color-darkest);
   margin-bottom: 6px;
   line-height: 1.42;
 }
@@ -558,13 +559,13 @@ body {
 }
 
 .pub-authors a:hover {
-  color: var(--color-arctic-navy);
+  color: var(--color-darkest);
   text-decoration: underline;
 }
 
 .pub-authors .me {
   font-weight: 700;
-  color: var(--color-arctic-navy);
+  color: var(--color-darkest);
   text-decoration: underline;
   text-decoration-color: var(--color-frost-sky);
 }
@@ -577,7 +578,7 @@ body {
 
 .pub-venue .venue-badge {
   display: inline-block;
-  background: linear-gradient(135deg, var(--color-arctic-navy) 0%, var(--color-glacial-slate) 100%);
+  background: linear-gradient(135deg, var(--color-darkest) 0%, var(--color-glacial-slate) 100%);
   color: #ffffff;
   padding: 2.5px 9px;
   border-radius: 5px;
@@ -592,14 +593,14 @@ body {
 .pub-buttons .button {
   margin-right: 6px;
   margin-bottom: 6px;
-  background-color: var(--color-arctic-navy);
+  background-color: var(--color-darkest);
   color: #ffffff;
-  border: 1px solid var(--color-arctic-navy);
+  border: 1px solid var(--color-darkest);
   transition: all 0.2s ease;
 }
 
 .pub-buttons .button:hover {
-  background: linear-gradient(135deg, var(--color-glacial-slate) 0%, #304870 100%);
+  background: linear-gradient(135deg, var(--color-glacial-slate) 0%, #355b71 100%);
   border-color: transparent;
   color: #ffffff;
   transform: translateY(-1px);
@@ -631,7 +632,7 @@ body {
   font-family: 'Google Sans', 'Noto Sans', sans-serif;
   font-weight: 600;
   font-size: 1rem;
-  color: var(--color-arctic-navy);
+  color: var(--color-darkest);
 }
 
 .exp-org {
@@ -654,7 +655,7 @@ body {
 }
 
 .footer a {
-  color: var(--color-arctic-navy);
+  color: var(--color-darkest);
   text-decoration: none;
 }
 
