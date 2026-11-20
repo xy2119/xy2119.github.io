@@ -691,6 +691,85 @@ body {
   text-decoration: underline;
 }
 
+/* ==================== Mobile ==================== */
+@media screen and (max-width: 860px) {
+  .main-wrapper {
+    margin: 1.15rem auto;
+    padding: 0 1rem;
+  }
+
+  /* Justified text stretches the gaps when a line wraps on a narrow screen. */
+  .has-text-justified,
+  .about-content,
+  .about-content p,
+  .pub-abstract {
+    text-align: left !important;
+    text-align-last: left !important;
+    text-justify: auto !important;
+    hyphens: manual;
+  }
+
+  .about-content {
+    line-height: 1.65;
+  }
+
+  .about-content p:not(:last-child) {
+    margin-bottom: 0.7em;
+  }
+
+  .news-item .columns.is-mobile {
+    margin: 0;
+  }
+
+  .news-item .column {
+    padding: 0.15rem 0;
+  }
+
+  .news-item .column.is-narrow {
+    padding-right: 0.7rem;
+  }
+
+  .publication-entry {
+    padding: 16px 14px;
+  }
+
+  .pub-title,
+  .exp-title,
+  .exp-org {
+    overflow-wrap: anywhere;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .top-nav {
+    height: auto;
+    min-height: 48px;
+    padding: 0.2rem 0;
+  }
+
+  .top-nav .nav-brand {
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .top-nav .nav-link {
+    position: relative;
+    padding: 0.45rem 0.55rem;
+  }
+
+  .top-nav .nav-link span {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+}
+
 /* Google Sans fallback */
 @font-face {
   font-family: 'Google Sans';
