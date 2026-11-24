@@ -18,6 +18,7 @@ body { font-family: 'Noto Sans', sans-serif; color: #2b2f36; }
 .publication-authors a { color: hsl(204, 86%, 45%) !important; }
 .publication-authors a:hover { text-decoration: underline; }
 .author-block { display: inline-block; margin: 0 0.15rem; }
+.publication-venue { font-family: 'Google Sans', sans-serif; color: var(--brand); font-weight: 600; margin-top: 0.5rem; }
 .publication-links { margin-top: 1.1rem; }
 .link-block { display: inline-block; margin: 0.2rem 0.15rem; }
 .link-block .button { font-family: 'Google Sans', sans-serif; }
