@@ -75,15 +75,6 @@
       <h2 class="subtitle has-text-centered teaser-caption">
         Video-driven methods follow the driving video but ignore speech; audio-driven methods follow speech but give little control over pose or lighting. <span class="brand">MoCoTalk</span> takes all of them as conditions at once, with independent control of facial expression, head pose and mouth dynamics.
       </h2>
-
-      <figure class="figure architecture-figure">
-        <img src="./static/images/architecture.png" alt="MoCoTalk architecture: four condition adapters feed an Adaptive Multi-Condition Router that fuses them into the shallow U-Net feature of a Stable Video Diffusion backbone.">
-      </figure>
-      <div class="content has-text-justified caption">
-        <p>
-          <b>Architecture.</b> MoCoTalk accepts four complementary conditioning signals: a reference portrait, facial keypoints, mouth-augmented 3DMM shading meshes and speech audio. Lighting, shape, pose and expression are extracted from video frames with DECA and SPECTRE and rendered into the shading mesh; the audio is encoded by Wav2Vec2 into a windowed feature sequence. Four parallel adapters lift the signals into spatially aligned latent maps, and the router fuses them into the shallow U-Net feature through channel-wise gating. The fused feature guides a Stable Video Diffusion backbone to denoise the video latents.
-        </p>
-      </div>
     </div>
   </div>
 </section>
@@ -115,8 +106,15 @@
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column">
-        <h2 class="title is-3">Method</h2>
-        <p class="sub-desc">The architecture is shown <a href="#overview">at the top of the page</a>. Its three contributions:</p>
+        <h2 class="title is-3">Method Overview</h2>
+        <figure class="figure">
+          <img src="./static/images/architecture.png" alt="MoCoTalk architecture: four condition adapters feed an Adaptive Multi-Condition Router that fuses them into the shallow U-Net feature of a Stable Video Diffusion backbone." loading="lazy">
+        </figure>
+        <div class="content has-text-justified caption">
+          <p>
+            MoCoTalk accepts four complementary conditioning signals: a reference portrait, facial keypoints, mouth-augmented 3DMM shading meshes and speech audio. Lighting, shape, pose and expression are extracted from video frames with DECA and SPECTRE and rendered into the shading mesh; the audio is encoded by Wav2Vec2 into a windowed feature sequence. Four parallel adapters lift the signals into spatially aligned latent maps, and the router fuses them into the shallow U-Net feature through channel-wise gating. The fused feature guides a Stable Video Diffusion backbone to denoise the video latents.
+          </p>
+        </div>
       </div>
     </div>
 
