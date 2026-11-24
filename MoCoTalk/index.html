@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MoCoTalk: Multi-Conditional Diffusion with Adaptive Router for Controllable Talking Head Generation</title>
+  <meta name="description" content="MoCoTalk is a multi-conditional video diffusion framework for talking-head generation that fuses a reference image, facial keypoints, mouth-augmented 3DMM shading meshes and speech audio through an Adaptive Multi-Condition Router.">
+  <meta name="keywords" content="MoCoTalk, talking head generation, video diffusion, multi-conditional, adaptive router, 3DMM, lip sync">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="MoCoTalk: Multi-Conditional Diffusion with Adaptive Router for Controllable Talking Head Generation">
+  <meta property="og:description" content="Channel-wise, timestep-aware fusion of reference image, keypoints, mouth-augmented shading mesh and audio for controllable talking heads.">
+  <meta property="og:image" content="https://xy2119.github.io/MoCoTalk/static/images/architecture.png">
+  <meta property="og:url" content="https://xy2119.github.io/MoCoTalk/">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23233f7a'/%3E%3Ctext x='32' y='43' font-family='Arial' font-weight='700' font-size='30' fill='white' text-anchor='middle'%3EMC%3C/text%3E%3C/svg%3E">
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.3/dist/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.4/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+</head>
+<body>
+
+<!-- ============================== Header ============================== -->
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title"><span class="brand">MoCoTalk</span>: Multi-Conditional Diffusion with Adaptive Router for Controllable Talking Head Generation</h1>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><a href="https://github.com/xy2119">Xinyan Ye</a>,</span>
+            <span class="author-block"><a href="https://jiankangdeng.github.io/">Jiankang Deng</a>,</span>
+            <span class="author-block"><a href="https://www.doc.ic.ac.uk/~ae/">Abbas Edalat</a></span>
+          </div>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">Imperial College London</span>
+          </div>
+
+          <div class="publication-links">
+            <span class="link-block">
+              <a href="https://arxiv.org/pdf/2605.08050" class="button is-normal is-rounded is-dark">
+                <span class="icon"><i class="fas fa-file-pdf"></i></span><span>Paper</span>
+              </a>
+            </span>
+            <span class="link-block">
+              <a href="https://arxiv.org/abs/2605.08050" class="button is-normal is-rounded is-dark">
+                <span class="icon"><i class="ai ai-arxiv"></i></span><span>arXiv</span>
+              </a>
+            </span>
+            <span class="link-block">
+              <a href="https://github.com/xy2119/MoCoTalk" class="button is-normal is-rounded is-dark">
+                <span class="icon"><i class="fab fa-github"></i></span><span>Code</span>
+              </a>
+            </span>
+            <span class="link-block">
+              <a href="#BibTeX" class="button is-normal is-rounded is-dark">
+                <span class="icon"><i class="fas fa-quote-right"></i></span><span>BibTeX</span>
+              </a>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== Teaser ============================== -->
+<section class="hero teaser">
+  <div class="container is-max-widescreen">
+    <div class="hero-body">
+      <video class="teaser-video" poster="./static/images/self_reenactment_poster.jpg" autoplay muted loop playsinline preload="metadata">
+        <source src="./static/videos/self_reenactment.mp4" type="video/mp4">
+      </video>
+      <h2 class="subtitle has-text-centered teaser-caption">
+        <span class="brand">MoCoTalk</span> drives a portrait with four signals at once (a reference image, facial keypoints, a mouth-augmented 3DMM shading mesh and speech audio) and fuses them with an adaptive router. Shown: self-reenactment on HDTF against six baselines. Every row plays in sync.
+      </h2>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== Abstract ============================== -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Talking-head generation requires joint modeling of identity, head pose, facial expression, and mouth dynamics. Existing methods typically address only a subset of these factors, and rely on fixed-weight or heuristic fusion when multiple conditions are involved. We present <b>MoCoTalk</b>, a multi-conditional video diffusion framework that unifies four complementary control signals: a reference image, facial keypoints, 3DMM-rendered shading meshes, and the corresponding speech audio.
+          </p>
+          <p>
+            To resolve destructive interference among heterogeneous conditions, we introduce an <b>Adaptive Multi-Condition Router</b> that computes channel-wise, timestep-aware gating over the four condition streams, allowing the fusion strategy to vary with both feature subspace and noise level. To better capture speech-related facial dynamics, we design a <b>Mouth-Augmented Shading Mesh</b>, a 3DMM-based representation that decouples head motion, mouth motion, expression, and lighting. This design provides a temporally consistent geometric prior and allows flexible recombination of these attributes at inference. We further introduce a <b>lip consistency loss</b> to tighten audio-visual alignment.
+          </p>
+          <p>
+            Extensive experiments show that MoCoTalk achieves state-of-the-art performance on the majority of structural, motion, and perceptual metrics, while offering attribute-level controllability that single-condition methods do not provide.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== Method ============================== -->
+<section class="section section-alt">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column">
+        <h2 class="title is-3">Method Overview</h2>
+        <figure class="figure">
+          <img src="./static/images/architecture.png" alt="MoCoTalk architecture: four condition adapters feed an Adaptive Multi-Condition Router that fuses them into the shallow U-Net feature of a Stable Video Diffusion backbone." loading="lazy">
+        </figure>
+        <div class="content has-text-justified caption">
+          <p>
+            MoCoTalk accepts four complementary conditioning signals: a reference portrait, facial keypoints, mouth-augmented 3DMM shading meshes and speech audio. Lighting, shape, pose and expression are extracted from video frames with DECA and SPECTRE and rendered into the shading mesh; the audio is encoded by Wav2Vec2 into a windowed feature sequence. Four parallel adapters lift the signals into spatially aligned latent maps, and the router fuses them into the shallow U-Net feature through channel-wise gating. The fused feature guides a Stable Video Diffusion backbone to denoise the video latents.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="columns is-multiline contrib-grid">
+      <div class="column is-one-third">
+        <div class="contrib-card">
+          <span class="contrib-num">1</span>
+          <h3 class="title is-5">Adaptive Multi-Condition Router</h3>
+          <p>Pools each condition, the U-Net feature and the timestep embedding, then predicts a softmax gate per channel over the four branches:</p>
+          <p class="formula">h = h<sub>unet</sub> + &Sigma;<sub>k</sub> g<sub>k</sub> &#8857; c<sub>k</sub></p>
+          <p>Missing conditions are masked out, so any subset of conditions works at inference.</p>
+        </div>
+      </div>
+      <div class="column is-one-third">
+        <div class="contrib-card">
+          <span class="contrib-num">2</span>
+          <h3 class="title is-5">Mouth-Augmented Shading Mesh</h3>
+          <p>Identity and lighting from DECA, mouth and expression from SPECTRE plus a DECA residual, head pose from a separate video. Head motion, mouth motion, expression and lighting can each come from a different source.</p>
+        </div>
+      </div>
+      <div class="column is-one-third">
+        <div class="contrib-card">
+          <span class="contrib-num">3</span>
+          <h3 class="title is-5">Lip Consistency Loss</h3>
+          <p>A <code>1 &minus; cos</code> loss between frozen lip-reading features of predicted and ground-truth mouth crops, which tightens audio-visual alignment of the mouth region.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column">
+        <h3 class="title is-4">Mouth-Augmented Shading Mesh</h3>
+        <video class="framed-video" poster="./static/images/mouth_augmented_fusion_poster.jpg" autoplay muted loop playsinline preload="metadata">
+          <source src="./static/videos/mouth_augmented_fusion.mp4" type="video/mp4">
+        </video>
+        <div class="content has-text-justified caption">
+          <p>
+            Fitting DECA to each frame on its own produces weak, jittery mouth shapes. Replacing the mouth-region coefficients with those recovered by SPECTRE, while keeping DECA's global head motion, gives a mesh that follows the speech closely and stays stable over time.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== Results ============================== -->
+<section class="section">
+  <div class="container is-max-widescreen">
+    <div class="has-text-centered">
+      <h2 class="title is-3">Results</h2>
+      <p class="results-intro">Evaluated on <b>HDTF</b> against Diff2Lip, VideoReTalking, SadTalker, Hallo2, LivePortrait and LCVD (our baseline). Each clip plays all methods in sync, so every column can be compared frame by frame.</p>
+    </div>
+
+    <h3 class="title is-4 has-text-centered results-sub">Self-Reenactment</h3>
+    <p class="has-text-centered sub-desc">The model reconstructs the driving video of the same identity, so the driver is the ground truth.</p>
+    <div id="carousel-self" class="carousel results-carousel">
+      <div class="item"><video poster="./static/images/self_1.jpg" autoplay muted loop playsinline preload="metadata"><source src="./static/videos/self_1.mp4" type="video/mp4"></video></div>
+      <div class="item"><video poster="./static/images/self_2.jpg" autoplay muted loop playsinline preload="metadata"><source src="./static/videos/self_2.mp4" type="video/mp4"></video></div>
+      <div class="item"><video poster="./static/images/self_3.jpg" autoplay muted loop playsinline preload="metadata"><source src="./static/videos/self_3.mp4" type="video/mp4"></video></div>
+      <div class="item"><video poster="./static/images/self_4.jpg" autoplay muted loop playsinline preload="metadata"><source src="./static/videos/self_4.mp4" type="video/mp4"></video></div>
+      <div class="item"><video poster="./static/images/self_5.jpg" autoplay muted loop playsinline preload="metadata"><source src="./static/videos/self_5.mp4" type="video/mp4"></video></div>
+      <div class="item"><video poster="./static/images/self_6.jpg" autoplay muted loop playsinline preload="metadata"><source src="./static/videos/self_6.mp4" type="video/mp4"></video></div>
+    </div>
+
+    <h3 class="title is-4 has-text-centered results-sub">Cross-Reenactment</h3>
+    <p class="has-text-centered sub-desc">A driving video of one person animates the reference portrait of another.</p>
+    <div id="carousel-cross" class="carousel results-carousel">
+      <div class="item"><video poster="./static/images/cross_1.jpg" autoplay muted loop playsinline preload="metadata"><source src="./static/videos/cross_1.mp4" type="video/mp4"></video></div>
+      <div class="item"><video poster="./static/images/cross_2.jpg" autoplay muted loop playsinline preload="metadata"><source src="./static/videos/cross_2.mp4" type="video/mp4"></video></div>
+      <div class="item"><video poster="./static/images/cross_3.jpg" autoplay muted loop playsinline preload="metadata"><source src="./static/videos/cross_3.mp4" type="video/mp4"></video></div>
+      <div class="item"><video poster="./static/images/cross_4.jpg" autoplay muted loop playsinline preload="metadata"><source src="./static/videos/cross_4.mp4" type="video/mp4"></video></div>
+      <div class="item"><video poster="./static/images/cross_5.jpg" autoplay muted loop playsinline preload="metadata"><source src="./static/videos/cross_5.mp4" type="video/mp4"></video></div>
+    </div>
+    <p class="has-text-centered full-grid-link">
+      <a href="./static/videos/cross_reenactment.mp4"><span class="icon"><i class="fas fa-table-cells"></i></span>All cross-reenactment samples in one grid</a>
+    </p>
+  </div>
+</section>
+
+<!-- ============================== Quantitative ============================== -->
+<section class="section section-alt">
+  <div class="container is-max-widescreen">
+    <h2 class="title is-3 has-text-centered">Quantitative Comparison</h2>
+    <p class="has-text-centered sub-desc">HDTF, first 100 frames of each test video. Best in <b>bold</b>.</p>
+
+    <div class="table-container">
+      <table class="table is-narrow is-hoverable results-table">
+        <thead>
+          <tr class="group-row">
+            <th></th>
+            <th colspan="10">Self-reenactment</th>
+            <th colspan="3">Cross-reenactment</th>
+          </tr>
+          <tr>
+            <th>Method</th>
+            <th>SSIM&uarr;</th><th>PSNR&uarr;</th><th>LPIPS&darr;</th><th>FVD&darr;</th><th>AED&darr;</th><th>APD&darr;</th><th>AKD&darr;</th><th>VQA&uarr;</th><th>ID&uarr;</th><th>Sync-C&uarr;</th>
+            <th class="group-start">AED&darr;</th><th>APD&darr;</th><th>ID&uarr;</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>VideoReTalking</td><td>0.7365</td><td>22.09</td><td>0.0976</td><td>279.9</td><td>0.1984</td><td>50.38</td><td>3.239</td><td>0.5526</td><td>0.6039</td><td>4.153</td><td class="group-start">0.2387</td><td>90.72</td><td>0.8488</td></tr>
+          <tr><td>Diff2Lip</td><td>0.7415</td><td>22.55</td><td>0.0916</td><td>211.3</td><td>0.1277</td><td>46.33</td><td>2.766</td><td>0.5596</td><td>0.8713</td><td><b>4.479</b></td><td class="group-start">0.2471</td><td>90.86</td><td>0.8703</td></tr>
+          <tr><td>SadTalker</td><td>0.7290</td><td>22.02</td><td>0.1080</td><td>64.66</td><td>0.1162</td><td>54.66</td><td>3.060</td><td>0.4691</td><td><b>0.9169</b></td><td>3.969</td><td class="group-start">0.2384</td><td>95.46</td><td><b>0.9159</b></td></tr>
+          <tr><td>FLOAT</td><td>0.4515</td><td>14.58</td><td>0.3092</td><td>91.88</td><td>0.1360</td><td>76.11</td><td>3.946</td><td>0.7192</td><td>0.8857</td><td>4.334</td><td class="group-start"><b>0.2348</b></td><td>90.09</td><td>0.8815</td></tr>
+          <tr><td>Hallo2</td><td>0.7152</td><td>21.78</td><td>0.0983</td><td>87.62</td><td>0.1205</td><td>44.72</td><td>2.708</td><td>0.6873</td><td>0.8929</td><td>4.443</td><td class="group-start">0.2434</td><td><b>86.66</b></td><td>0.8923</td></tr>
+          <tr><td>LCVD</td><td>0.7209</td><td>21.48</td><td>0.1093</td><td>97.45</td><td>0.1234</td><td>13.90</td><td>1.529</td><td><b>0.7477</b></td><td>0.7762</td><td>1.163</td><td class="group-start">0.2466</td><td>91.26</td><td>0.7705</td></tr>
+          <tr class="is-ours"><td><b>MoCoTalk (ours)</b></td><td><b>0.7998</b></td><td><b>23.55</b></td><td><b>0.0810</b></td><td><b>40.75</b></td><td><b>0.1028</b></td><td><b>13.85</b></td><td><b>1.393</b></td><td>0.6320</td><td>0.8382</td><td>1.191</td><td class="group-start">0.2382</td><td>89.60</td><td>0.8293</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <div class="content stat-row">
+          <div class="stat"><span class="stat-value">7 / 10</span><span class="stat-label">self-reenactment metrics where MoCoTalk is best</span></div>
+          <div class="stat"><span class="stat-value">&minus;37%</span><span class="stat-label">FVD vs. the next best method (40.75 vs. 64.66)</span></div>
+          <div class="stat"><span class="stat-value">14&times;</span><span class="stat-label">higher FVD without the router (592.5)</span></div>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="title is-4 has-text-centered results-sub">Ablation Study</h3>
+    <div class="table-container">
+      <table class="table is-narrow is-hoverable results-table">
+        <thead>
+          <tr class="group-row">
+            <th></th>
+            <th colspan="10">Self-reenactment</th>
+            <th colspan="3">Cross-reenactment</th>
+          </tr>
+          <tr>
+            <th>Variant</th>
+            <th>SSIM&uarr;</th><th>PSNR&uarr;</th><th>LPIPS&darr;</th><th>FVD&darr;</th><th>AED&darr;</th><th>APD&darr;</th><th>AKD&darr;</th><th>VQA&uarr;</th><th>ID&uarr;</th><th>Sync-C&uarr;</th>
+            <th class="group-start">AED&darr;</th><th>APD&darr;</th><th>ID&uarr;</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>w/o Adaptive Router</td><td>0.7717</td><td>23.08</td><td>0.1286</td><td>592.5</td><td>0.1359</td><td>18.55</td><td>1.648</td><td>0.5806</td><td>0.6739</td><td>1.157</td><td class="group-start">0.2536</td><td>96.78</td><td>0.6844</td></tr>
+          <tr><td>w/o Lip Consistency Loss</td><td>0.7828</td><td>22.71</td><td>0.0925</td><td>93.07</td><td>0.1117</td><td>14.84</td><td>1.456</td><td>0.6762</td><td>0.8043</td><td>1.171</td><td class="group-start">0.2471</td><td>94.85</td><td>0.8001</td></tr>
+          <tr><td>w/o Mouth-Augmented Mesh</td><td>0.8004</td><td>23.61</td><td>0.0805</td><td>41.51</td><td>0.1030</td><td>13.97</td><td>1.494</td><td>0.6292</td><td>0.8380</td><td>1.182</td><td class="group-start">0.2655</td><td>100.8</td><td>0.8065</td></tr>
+          <tr class="is-ours"><td><b>Full model</b></td><td>0.7998</td><td>23.55</td><td>0.0810</td><td>40.75</td><td>0.1028</td><td>13.85</td><td>1.393</td><td>0.6320</td><td>0.8382</td><td>1.191</td><td class="group-start">0.2382</td><td>89.60</td><td>0.8293</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <div class="content">
+          <ul class="findings">
+            <li><b>The router matters most.</b> Replacing it with fixed additive fusion raises FVD about 14&times; (40.75 &rarr; 592.5) and lowers ID by 18&ndash;20% in both the self and cross settings.</li>
+            <li><b>The lip loss</b> improves motion accuracy (AED, APD, AKD) and cross-identity transfer.</li>
+            <li><b>The mouth-augmented mesh</b> mainly helps cross-reenactment: without it, Cross APD rises from 89.6 to 100.8, while per-frame reconstruction metrics barely change.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== BibTeX ============================== -->
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <div class="bibtex-wrap">
+      <button class="button is-small copy-btn" type="button" aria-label="Copy BibTeX"><span class="icon"><i class="far fa-copy"></i></span><span class="copy-label">Copy</span></button>
+<pre><code id="bibtex">@article{ye2026mocotalk,
+  title   = {MoCoTalk: Multi-Conditional Diffusion with Adaptive Router for Controllable Talking Head Generation},
+  author  = {Ye, Xinyan and Deng, Jiankang and Edalat, Abbas},
+  journal = {arXiv preprint arXiv:2605.08050},
+  year    = {2026}
+}</code></pre>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <p>
+        <a class="icon-link" href="https://arxiv.org/pdf/2605.08050"><i class="fas fa-file-pdf"></i></a>
+        <a class="icon-link" href="https://github.com/xy2119/MoCoTalk"><i class="fab fa-github"></i></a>
+      </p>
+      <p>
+        Page layout adapted from the <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a> project page template, licensed under
+        <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.3/dist/js/bulma-carousel.min.js"></script>
+<script src="./static/js/index.js"></script>
+</body>
+</html>
