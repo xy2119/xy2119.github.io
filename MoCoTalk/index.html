@@ -34,7 +34,7 @@
           <h1 class="title is-1 publication-title"><span class="brand">MoCoTalk</span>: Multi-Conditional Diffusion with Adaptive Router for Controllable Talking Head Generation</h1>
 
           <div class="is-size-5 publication-authors">
-            <span class="author-block"><a href="https://github.com/xy2119">Xinyan Ye</a>,</span>
+            <span class="author-block"><a href="https://xy2119.github.io/">Xinyan Ye</a>,</span>
             <span class="author-block"><a href="https://jiankangdeng.github.io/">Jiankang Deng</a>,</span>
             <span class="author-block"><a href="https://www.doc.ic.ac.uk/~ae/">Abbas Edalat</a></span>
           </div>
@@ -58,11 +58,6 @@
                 <span class="icon"><i class="fab fa-github"></i></span><span>Code (coming soon)</span>
               </a>
             </span>
-            <span class="link-block">
-              <a href="#BibTeX" class="button is-normal is-rounded is-dark">
-                <span class="icon"><i class="fas fa-quote-right"></i></span><span>BibTeX</span>
-              </a>
-            </span>
           </div>
         </div>
       </div>
@@ -71,15 +66,24 @@
 </section>
 
 <!-- ============================== Teaser ============================== -->
-<section class="hero teaser">
-  <div class="container is-max-widescreen">
+<section class="hero teaser" id="overview">
+  <div class="container is-max-desktop">
     <div class="hero-body">
-      <video class="teaser-video" poster="./static/images/self_reenactment_poster.jpg" autoplay muted loop playsinline preload="metadata">
-        <source src="./static/videos/self_reenactment.mp4" type="video/mp4">
-      </video>
+      <figure class="teaser-figure">
+        <img src="./static/images/teaser.png" alt="Video-only and audio-only talking-head models compared with MoCoTalk, which takes video, keypoint, mesh and audio conditions at once.">
+      </figure>
       <h2 class="subtitle has-text-centered teaser-caption">
-        <span class="brand">MoCoTalk</span> drives a portrait with four signals at once (a reference image, facial keypoints, a mouth-augmented 3DMM shading mesh and speech audio) and fuses them with an adaptive router. Shown: self-reenactment on HDTF against six baselines. Every row plays in sync.
+        Video-driven methods follow the driving video but ignore speech; audio-driven methods follow speech but give little control over pose or lighting. <span class="brand">MoCoTalk</span> takes all of them as conditions at once, with independent control of facial expression, head pose and mouth dynamics.
       </h2>
+
+      <figure class="figure architecture-figure">
+        <img src="./static/images/architecture.png" alt="MoCoTalk architecture: four condition adapters feed an Adaptive Multi-Condition Router that fuses them into the shallow U-Net feature of a Stable Video Diffusion backbone.">
+      </figure>
+      <div class="content has-text-justified caption">
+        <p>
+          <b>Architecture.</b> MoCoTalk accepts four complementary conditioning signals: a reference portrait, facial keypoints, mouth-augmented 3DMM shading meshes and speech audio. Lighting, shape, pose and expression are extracted from video frames with DECA and SPECTRE and rendered into the shading mesh; the audio is encoded by Wav2Vec2 into a windowed feature sequence. Four parallel adapters lift the signals into spatially aligned latent maps, and the router fuses them into the shallow U-Net feature through channel-wise gating. The fused feature guides a Stable Video Diffusion backbone to denoise the video latents.
+        </p>
+      </div>
     </div>
   </div>
 </section>
@@ -111,15 +115,8 @@
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column">
-        <h2 class="title is-3">Method Overview</h2>
-        <figure class="figure">
-          <img src="./static/images/architecture.png" alt="MoCoTalk architecture: four condition adapters feed an Adaptive Multi-Condition Router that fuses them into the shallow U-Net feature of a Stable Video Diffusion backbone." loading="lazy">
-        </figure>
-        <div class="content has-text-justified caption">
-          <p>
-            MoCoTalk accepts four complementary conditioning signals: a reference portrait, facial keypoints, mouth-augmented 3DMM shading meshes and speech audio. Lighting, shape, pose and expression are extracted from video frames with DECA and SPECTRE and rendered into the shading mesh; the audio is encoded by Wav2Vec2 into a windowed feature sequence. Four parallel adapters lift the signals into spatially aligned latent maps, and the router fuses them into the shallow U-Net feature through channel-wise gating. The fused feature guides a Stable Video Diffusion backbone to denoise the video latents.
-          </p>
-        </div>
+        <h2 class="title is-3">Method</h2>
+        <p class="sub-desc">The architecture is shown <a href="#overview">at the top of the page</a>. Its three contributions:</p>
       </div>
     </div>
 
@@ -183,6 +180,9 @@
       <div class="item"><video poster="./static/images/self_5.jpg" autoplay muted loop playsinline preload="metadata"><source src="./static/videos/self_5.mp4" type="video/mp4"></video></div>
       <div class="item"><video poster="./static/images/self_6.jpg" autoplay muted loop playsinline preload="metadata"><source src="./static/videos/self_6.mp4" type="video/mp4"></video></div>
     </div>
+    <p class="has-text-centered full-grid-link">
+      <a href="./static/videos/self_reenactment.mp4"><span class="icon"><i class="fas fa-table-cells"></i></span>All self-reenactment samples in one grid</a>
+    </p>
 
     <h3 class="title is-4 has-text-centered results-sub">Cross-Reenactment</h3>
     <p class="has-text-centered sub-desc">A driving video of one person animates the reference portrait of another.</p>
